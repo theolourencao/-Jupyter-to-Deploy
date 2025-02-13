@@ -23,4 +23,4 @@ jobs:
       run: ls -la
 
     - name: Run tests
-      run: pytest -v tests.teste_api.py
+      run: pytest -v tests.test_api.py
