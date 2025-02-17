@@ -27,9 +27,14 @@ class Produtos:
         return self.produtos
     
     def buscar_produto(self,id):
+
+        print(self.produtos)
         for produto in self.produtos:
             if produto["id"] == id:
+                print(produto)
                 return produto
+            else:
+                return {"mensagem": "Produto não encontrado"}, 404
             
     def cadastrar_produto(self, produto):
         self.produtos.append(produto)

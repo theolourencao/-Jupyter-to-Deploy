@@ -28,6 +28,6 @@ def teste_pega_unidade_produto():
         "id": "1",
         "nome": "Smartphone XYZ",
         "descricao": "Um smartphone de última geração com câmera de alta resolução",
-        "preco": "2999.99"
+        "preco": 2999.99
     }
     
