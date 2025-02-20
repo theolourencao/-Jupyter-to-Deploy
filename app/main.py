@@ -1,24 +1,8 @@
-from fastapi import FastAPI
-from .schema import ProdutosSchema
-from .data import Produtos
+from fastapi import FastAPI  # Importa a classe FastAPI do framework FastAPI.
+from .routes import router  # Importa o objeto 'router' do módulo 'router' local.
 
-app = FastAPI()
-lista_de_produtos = Produtos()
+app = FastAPI()  # Cria uma instância do aplicativo FastAPI.
+# 'app' é a instância central do seu aplicativo web.
 
-@app.get("/") # Reqiest
-def ola_mundo(): #Response
-    return {"mensagem": "Olá Mundo!"}
-
-@app.get("/produtos", response_model=list[ProdutosSchema]) # Request
-
-def listar_produtos(): # Response
-    return lista_de_produtos.listar_produtos()
-
-
-@app.get("/produtos/{id}", response_model =ProdutosSchema) # Request
-def buscar_produto(id: str):
-    return lista_de_produtos.buscar_produto(id)
-
-@app.post("/produtos", response_model=ProdutosSchema)
-def cadastrar_produto(produto: ProdutosSchema):
-    return lista_de_produtos.cadastrar_produto(produto.model_dump())
+app.include_router(router)  # Anexa o roteador 'router' ao aplicativo FastAPI.
+# Isso registra todas as rotas e operações definidas em 'router' no aplicativo.
